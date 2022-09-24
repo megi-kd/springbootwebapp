@@ -24,10 +24,14 @@ public class BootsrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Publisher publisher = new Publisher("Publusher1", "Address", "city", "state", "zipcode");
+        publisherRepository.save(publisher);
+
         Author megi = new Author("AuthorFirstName", "AuthorLastName");
         Book book = new Book("Book1", "isbn1");
         megi.getBooks().add(book);
         book.getAuthors().add(megi);
+        publisher.getBooks().add(book);
 
         authorRepository.save(megi);
         bookRepository.save(book);
@@ -35,17 +39,20 @@ public class BootsrapData implements CommandLineRunner {
         Author sss = new Author("AuthorFirstNameSecond", "AuthorLastNameSecond");
         Book book2 = new Book("Book2", "isbn2");
         megi.getBooks().add(book2);
-        book.getAuthors().add(sss);
+        book2.getAuthors().add(sss);
+        publisher.getBooks().add(book2);
 
         authorRepository.save(sss);
         bookRepository.save(book2);
-
-        Publisher publisher = new Publisher("Publusher1", "Address", "city", "state", "zipcode");
         publisherRepository.save(publisher);
+
+
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of books:" + bookRepository.count());
         System.out.println(("Number of publishers: "+ publisherRepository.count()));
+        System.out.println(("Publisher books count: "+ publisher.getBooks().size()));
+
 
 
     }
