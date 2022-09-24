@@ -8,8 +8,8 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>springbootwebapp</artifactId>
+	<groupId>guru.springframework</groupId>
+	<artifactId>spring5webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springbootwebapp</name>
 	<description>Spring Boot Web App</description>
